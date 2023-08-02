@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            padding: 10px;
+        }
+        .container{
+            width: 50%;
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+        }
+        .Advance_search{
+            display: flex;
+            justify-content: right;
+        }
+        #Advancesubmit{
+            background-color: rgb(59, 157, 223);
+            color: aliceblue;
+            /* border: 2px solid rgb(59, 157, 223); */
+            box-shadow: 1px 1px 1px 1px rgb(9, 108, 173);
+        }
+        #Advancesubmit :hover{
+            box-shadow: 0px 0px 0px 0px rgb(9, 108, 173);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <h2>Google</h2>
+        <br>
+        <h3 style="color: rgb(230, 42, 42);">Advance search</h3>
+        <ul style="list-style: none; text-align: right;">
+            <li><a href="/index.html">Google search</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div class="container">
+        <h4>Find pages with...</h4>
+        <h5>all these words :</h5>
+        <input type="text" id="allwords">
+        <br>
+        <h5>this exact words or phrase :</h5>
+        <input type="text" id="exactwords">
+        <br>
+        <h5>any of these words :</h5>
+        <input type="text" id="anywords">
+        <br>
+        <h5>none of these words :</h5>
+        <input type="text" id="nonewords">
+        <br>
+    </div>
+    <hr>
+    <div class="Advance_search">
+            <button type="button" id="Advancesubmit">Advance search</button>
+    </div>
+    <script>
+        document.getElementById("Advancesubmit").onclick = function(){
+            let q = "as_q=?&"
+            let epq = "as_epq=?&"
+            let oq = "as_oq=?&"
+            let eq = "as_eq=?&"
+            q = q.replace("?",document.getElementById("allwords").value)
+            epq = epq.replace("?",document.getElementById("exactwords").value)
+            oq = oq.replace("?",document.getElementById("anywords").value)
+            eq = eq.replace("?",document.getElementById("nonewords").value)
+            let Search = "https://www.google.com/search?"
+            Search = Search.concat(q,epq,oq,eq,"as_nlo=&as_nhi=&lr=&cr=&as_qdr=all&as_sitesearch=&as_occt=any&as_filetype=&tbs=")
+            location.assign(Search)
+        }
+    </script>
+</body>
+
+</html>

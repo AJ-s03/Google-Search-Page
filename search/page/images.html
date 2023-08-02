@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 100vw;
+            height: 80vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hyperlink {
+            display: flex;
+            justify-content: right;
+        }
+
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .bar {
+            width: 20%;
+            height: 5%;
+            padding-left: 10vw;
+            border-radius: 30px;
+            border: 2px solid #dcdcdc;
+            box-shadow: 1px 5px 5px 1px #dcdcdc;
+            justify-content: center;
+        }
+
+        .bar:hover {
+            box-shadow: 2px 8px 8px 2px #dcdcdc;
+        }
+
+        #Searchbar {
+            padding: 3%;
+            position: relative;
+            padding-bottom: 0%;
+            right: 45%;
+            border: 0px solid rgb(255, 255, 255);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .buttons button {
+            border: 1px solid #dcdcdc;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="hyperlink">
+        <ul>
+            <li><a href="/index.html">Google search</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <img src="/images/google_img.png">
+        <div class="bar">
+            <input type="search" name="search" id="Searchbar">
+        </div>
+        <br>
+        <div class="buttons">
+            <button type="button" id="submit">Google Search</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("submit").onclick = function () {
+            let query = document.getElementById("Searchbar").value;
+            let Search = "https://www.google.com/search?bih=772&biw=1517&hl=en&sxsrf=AB5stBji1emhPPVGWCdfrXLH7oTk9k-1Sw:1689514727232&q="
+            query = query.concat("&tbm=isch&sa=X&ved=2ahUKEwjW9KLprJOAAxV8amwGHYCcAtIQ0pQJegQIDRAB")
+            Search = Search.concat(query)
+            location.assign(Search)
+        }
+    </script>
+</body>
+
+</html>
